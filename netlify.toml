@@ -1,4 +1,4 @@
 [build]
-  publish="static/"
-  functions="functions/"
-  commands="npm run build"
+  publish = "static/"
+  functions = "functions/"
+  command = "npm run build"
