@@ -35,7 +35,7 @@ exports.handler = async (
         method: 'POST',
         uri: root_url + config.proc_api,
         timeout: 30 * 1000,
-        body: querystring.stringify({ Caller: callerRaw, RecordingUrl: voiceData }),
+        form: { Caller: callerRaw, RecordingUrl: voiceData },
     });
 
     const xml = CallUtils.XML_HEADER + CallUtils.buildSayXml(config.done_message) + CallUtils.XML_HANGUP + CallUtils.XML_FOOTER;
