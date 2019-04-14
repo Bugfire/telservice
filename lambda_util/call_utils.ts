@@ -42,7 +42,6 @@ class CallUtils {
             console.log(message);
             return;
         }
-        console.log('trying to post ' + message + ' to ' + slack_webhook_url);
         try {
             await request({
                 method: 'POST',
