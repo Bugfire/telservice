@@ -9,7 +9,7 @@ import CallUtils from '../lambda_util/call_utils'
 
 import config from '../lambda_util/config'
 
-const root_url = process.env.URL + '/.netlify/functions/';
+const root_url = process.env.URL + '/.netlify/functions';
 
 exports.handler = async (
     event: APIGatewayProxyEvent,

@@ -42,6 +42,7 @@ class CallUtils {
             console.log(message);
             return;
         }
+        console.log('trying to post ' + message + ' to ' + slack_webhook_url);
         try {
             request({
                 method: 'POST',
@@ -60,7 +61,7 @@ class CallUtils {
     static readonly XML_HEADER = '<?xml version="1.0" encoding="UTF-8"?><Response>';
     static readonly XML_FOOTER = '</Response>';
     static readonly XML_HANGUP = '<Hangup />';
-    static readonly XML_RECORD_START = '<Record action="https://';
+    static readonly XML_RECORD_START = '<Record action="';
     static readonly XML_RECORD_END = '" finishOnKey="#" maxLength="60" method="post" timeout="75" />';
     private static readonly XML_SAY_START = '<Say language="ja-jp" voice="woman">';
     private static readonly XML_SAY_END = '</Say>';

@@ -31,23 +31,23 @@ async function recognizeRecodingAndStoreToGoogleDrive(caller: string, voiceData:
 
 async function storeToGoogleDrive(recording: string, caller: string): Promise<string> {
     if (!CallUtils.isValidString(gdrive_url) || !CallUtils.isValidString(recording)) {
-    return null;
-  }
-  const res: string = await request({
-    method: 'GET',
-      uri: gdrive_url,
-      timeout: 30 * 1000,
-      qs: { uri: recording, caller: caller, key: gdrive_key }
-  });
-  return res;
+        return null;
+    }
+    const res: string = await request({
+        method: 'GET',
+        uri: gdrive_url,
+        timeout: 30 * 1000,
+        qs: { uri: recording, caller: caller, key: gdrive_key }
+    });
+    return res;
 }
 
 function slackReportDone(caller: string, text: string, share: string) {
-  CallUtils.slackReport(CallUtils.buildMessage(config.slack_done_text, {
-    caller,
-    text: CallUtils.isValidString(text) ? ('\n```\n' + text + '```') : '',
-      share: CallUtils.isValidString(share) ? ('<' + share + '|音声>') : '',
-  }));
+    CallUtils.slackReport(CallUtils.buildMessage(config.slack_done_text, {
+        caller,
+        text: CallUtils.isValidString(text) ? ('\n```\n' + text + '```') : '',
+        share: CallUtils.isValidString(share) ? ('<' + share + '|音声>') : '',
+    }));
 }
 
 async function recognizeRecording(voiceData: string): Promise<string> {
