@@ -37,14 +37,14 @@ class CallUtils {
         }
         return text;
     }
-    static slackReport(message: string | undefined) {
+    static async slackReport(message: string | undefined) {
         if (!this.isValidString(slack_webhook_url) || !this.isValidString(message)) {
             console.log(message);
             return;
         }
         console.log('trying to post ' + message + ' to ' + slack_webhook_url);
         try {
-            request({
+            await request({
                 method: 'POST',
                 uri: slack_webhook_url,
                 timeout: 30 * 1000,

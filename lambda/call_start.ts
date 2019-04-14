@@ -23,7 +23,7 @@ exports.handler = async (
     console.log('Called from ' + callerRow);
 
     const caller = CallUtils.normalizeCaller(callerRow);
-    CallUtils.slackReport(CallUtils.buildMessage(config.slack_call_text, { caller }));
+    await CallUtils.slackReport(CallUtils.buildMessage(config.slack_call_text, { caller }));
 
     const XML_RECORD = CallUtils.XML_RECORD_START + root_url + config.done_api + CallUtils.XML_RECORD_END;
     const xml = CallUtils.XML_HEADER + CallUtils.buildSayXml(config.call_message) + XML_RECORD + CallUtils.XML_FOOTER;
