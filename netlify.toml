@@ -1,3 +1,4 @@
 [build]
-  functions="functions"
+  publish="static/"
+  functions="functions/"
   commands="npm run build"

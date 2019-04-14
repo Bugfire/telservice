@@ -20,6 +20,7 @@
     "@types/aws-lambda": "^8.10.24",
     "@types/node": "^11.13.4",
     "@types/request-promise": "^4.1.42",
+    "netlify-cli": "^2.11.7",
     "netlify-lambda": "^1.4.3",
     "tslint": "^5.15.0",
     "typescript": "^3.4.3"
