@@ -9,8 +9,6 @@ import CallUtils from '../lambda_util/call_utils'
 
 import * as request from 'request-promise';
 
-import qs from 'querystring';
-
 import config from '../lambda_util/config'
 
 const root_url = process.env.URL + '/.netlify/functions';
@@ -35,7 +33,7 @@ exports.handler = async (
         method: 'POST',
         uri: root_url + config.proc_api,
         timeout: 30 * 1000,
-        body: event.body,
+        formData: { Caller: callerRaw, RecordingUrl: voiceData },
     });
 
     const xml = CallUtils.XML_HEADER + CallUtils.buildSayXml(config.done_message) + CallUtils.XML_HANGUP + CallUtils.XML_FOOTER;
