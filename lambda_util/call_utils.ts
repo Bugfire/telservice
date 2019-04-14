@@ -5,13 +5,22 @@ import {
 
 import * as request from 'request-promise';
 
-import config from './config';
+import qs from 'querystring';
 
 const slack_webhook_url = process.env.SLACK_WEBHOOK_URL;
 
 class CallUtils {
     static isValidString(obj: string | undefined): boolean {
         return typeof obj === 'string' && obj !== '';
+    }
+    static getParam(body: string, key: string): string | undefined {
+        const p = qs.parse(body);
+        const r = p[key];
+        if (Array.isArray(r)) {
+            return r[0];
+        } else {
+            return r;
+        }
     }
     static normalizeCaller(caller: string | undefined): string {
         if (!this.isValidString(caller)) {

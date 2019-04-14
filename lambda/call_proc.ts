@@ -91,13 +91,13 @@ exports.handler = async (
     if (event.httpMethod !== 'POST') {
         return CallUtils.return405();
     }
-    console.log('DUMP - ' + JSON.stringify(event.queryStringParameters));
 
-    const callerRow = event.queryStringParameters['Caller'];
-    const voiceData = event.queryStringParameters['RecordingUrl'];
-    console.log('Called from ' + callerRow + ' voice on ' + voiceData);
+    console.log('Body=' + event.body);
+    const callerRaw = CallUtils.getParam(event.body, 'Caller');
+    const voiceData = CallUtils.getParam(event.body, 'RecordingUrl');
+    console.log('Called from ' + callerRaw + ' voice on ' + voiceData);
 
-    const caller = CallUtils.normalizeCaller(callerRow);
+    const caller = CallUtils.normalizeCaller(callerRaw);
 
     await recognizeRecodingAndStoreToGoogleDrive(caller, voiceData);
 
