@@ -1,0 +1,27 @@
+{
+  "name": "telservice_netlify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "debug": "npx netlify-lambda serve lambda/",
+    "build": "npx netlify-lambda build lambda/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/aws-lambda": "^8.10.24",
+    "@types/node": "^11.13.4",
+    "@types/request-promise": "^4.1.42",
+    "netlify-lambda": "^1.4.3",
+    "tslint": "^5.15.0",
+    "typescript": "^3.4.3"
+  }
+}
