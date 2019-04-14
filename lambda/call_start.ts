@@ -5,9 +5,9 @@ import {
     // @ts-ignore
 } from 'aws-lambda'
 
-import CallUtils from './call_utils'
+import CallUtils from '../lambda_util/call_utils'
 
-import config from './config'
+import config from '../lambda_util/config'
 
 const root_url = process.env.URL + '/.netlify/functions/';
 
