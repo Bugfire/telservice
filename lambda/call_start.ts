@@ -19,6 +19,8 @@ exports.handler = async (
         return CallUtils.return405();
     }
 
+    console.log('DUMP - ' + JSON.stringify(event.queryStringParameters));
+
     const callerRow = event.queryStringParameters['Caller'];
     console.log('Called from ' + callerRow);
 
